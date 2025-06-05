@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from . import moviedb
+from . import ranking
 
 
 
@@ -22,6 +23,8 @@ def actor_api(request):
 
 def actor_id(request, actor_id):
     print(f"Actor ID: {actor_id}")
-    movie_list = moviedb.get_actor_movies(actor_id=actor_id)
+    movie_list_response = moviedb.get_actor_movies(actor_id=actor_id)
+
+    movie_list = ranking.rank_movies(movie_list=movie_list_response.json()['cast'])
  
-    return JsonResponse({"response": movie_list.json()})
+    return JsonResponse({"response": movie_list})
