@@ -126,6 +126,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MOVIE_DB_IMAGE_URL = 'https://image.tmdb.org/t/p/original/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
